@@ -21,6 +21,11 @@ fruits_selected = streamlit.multiselect("Pick some fruits:",list(my_fruit_list.i
 fruits_to_show = my_fruit_list.loc[fruits_selected]
 #display the table on the pagecreat
 streamlit.dataframe(fruits_to_show)
+
+#New section to display fruityvice api response
+streamlit.header('Fruityvice Fruit Advice!')
 import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-streamlit.text(fruityvice_response)
+streamlit.text(fruityvice_response.json())
+
+
